@@ -1,0 +1,22 @@
+// ===== build.gradle.kts (PROJECT level, repo root) =====
+plugins {
+    // ...existing plugins
+    alias(libs.plugins.google.services) apply false
+}
+
+
+// ===== app/build.gradle.kts (MODULE level) =====
+plugins {
+    // ...existing plugins
+    alias(libs.plugins.google.services)
+}
+
+dependencies {
+    // ...existing dependencies
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.firebase.auth)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.kotlinx.coroutines.play.services)
+}
